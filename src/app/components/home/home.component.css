@@ -1,0 +1,8 @@
+.hero {
+    background-image: url('../../../assets/back.jpeg') !important;
+    background-size: cover;
+    background-position: center center;
+  }
+  .is-fullheight {
+      height: 100vh;
+  }

@@ -1,0 +1,48 @@
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
+    <div class="container">
+
+      <h1 class="title">Contact Us!</h1>
+
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <form #contactForm="ngForm" class="form-horizontal" (ngSubmit)="processForm()">
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="name">Name: </label>
+        <div class="col-sm-10">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" [(ngModel)]="name" minlength="2" #nameInput="ngModel" required>
+        </div>
+        <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty && nameInput.touched">
+          Name is required and needs to be at least 3 characters long.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">Email: </label>
+        <div class="col-sm-10"> 
+          <input type="email" class="form-control" name="email" placeholder="Your Email" [(ngModel)]="email" required #emailInput="ngModel" required>
+        </div>
+        <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty && emailInput.touched">
+          Needs to be a valid email.
+        </div>
+      </div>
+      <div class="form-group"> 
+        <label class="control-label col-sm-2" for="message">Message: </label>
+        <div class="col-sm-10"> 
+          <textarea class="textarea" name="message" placeholder="What's on your mind?" [(ngModel)]="message" #messageInput="ngModel" required></textarea>
+        </div>
+        <!-- <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+          Your message is required!
+        </div> -->
+      </div>
+      <div class="form-group"> 
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success" disabled="contactForm.form.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+    
+  </div>
+  </section>
